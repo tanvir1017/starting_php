@@ -1,4 +1,4 @@
-<?
+<?php
 
     // Single line comment in PHP
     # Another single line comment
@@ -25,9 +25,61 @@
      * - Object: An instance of a class that can contain properties and methods.
       */
 
+    $name = "Ayesha";
+    $age = 25;
+    $isFather = true;
+    $salary = 35;
+    $result = 34.4;
+    $null_value = null;
+
+    // Print the variables into web
+    echo "Hello ";
+    echo $name;
+echo "<br />";
+echo "Is Father: " . $isFather. "<br/>";
+echo "Salary: " . $salary;
+
+echo "</br>".gettype($name) . "<br>";
+echo gettype($age)."<br>";
+echo gettype($isFather)."<br>";
+echo gettype($salary)."<br>";
+echo gettype($result)."<br>";
+
+echo "------------------------------------------"."</br>";
+echo "------------------------------------------"."</br>";
+
+print_r($name);
+echo "</br>";
+var_dump($name);
+echo "</br>";
 
 
-    // Variable declaration and initialization
+//  changing the variable types
+$name = 0101;
+print_r($name);
+echo "</br>";
+var_dump($name);
+
+echo "</br>";
+echo "------------------------------------------"."</br>";
+echo "------------------------------------------"."</br>";
+
+var_dump(is_string($name));
+echo "</br>";
+var_dump(is_int($age));
+echo "</br>";
+var_dump(is_bool($isFather));
+echo "</br>";
+var_dump(is_double($result));
+echo "</br>";
+var_dump(is_null($null_value));
+echo "</br>";
+
+
+
+
+
+
 
 
 
