@@ -6,11 +6,6 @@
     <title>PHP</title>
   </head>
   <body>
-    <?php
-    echo "Hello, Ayesha! <br />";
-      echo "Hello, WORLD! <br />";
-      echo 'Hello'. " Concatenation". '<br />' . "Is a fun <br />";
-    
-    ?>
+  
   </body>
 </html>

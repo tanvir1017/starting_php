@@ -76,6 +76,11 @@ var_dump(is_null($null_value));
 echo "</br>";
 
 
+var_dump(isset($null_value));
+echo "</br>";
+var_dump(isset($name));
+echo "</br>";
+
 
 
 
