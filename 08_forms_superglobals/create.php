@@ -1,8 +1,12 @@
 <?php
     // var_dump($_GET["name"]);
-    echo "<pre>";
-    var_dump($_FILES);
-    echo "</pre>";
+    // echo "<pre>";
+    // var_dump($_FILES);
+    // echo "</pre>";
+
+    $uploadsDir = "uploads/";
+    $contactsFile = "contacts.json";
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
         
@@ -12,7 +16,7 @@
 
 
         // var_dump($name, $email, $phone);
-        if($name && $email && $phone){
+        if($name && $email && $phone && isset($_FILES["image"])){
             echo "Contact added: $name ($email, $phone)";
         }else{
             echo "<div>Invalid input!</div>";
