@@ -1,11 +1,11 @@
 <?php
-    // var_dump($_GET["name"]);
-    // echo "<pre>";
-    // var_dump($_FILES);
-    // echo "</pre>";
+    
+    echo "<pre>";
+        var_dump($_FILES);
+    echo "</pre>";
 
-    $uploadsDir = "uploads/";
-    $contactsFile = "contacts.json";
+    $uploads_dir = "uploads/";
+    $contacts_file = "contacts.json";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -17,8 +17,41 @@
 
         // var_dump($name, $email, $phone);
         if($name && $email && $phone && isset($_FILES["image"])){
-            echo "Contact added: $name ($email, $phone)";
+
+            if(!is_dir($uploads_dir)){
+                mkdir($uploads_dir, 0777, true);
+            }
+
+            $image_name = time() . "_" . basename($_FILES["image"]["name"]);
+            $image_path = "$uploads_dir $image_name";
+
+            if(move_uploaded_file($_FILES['image']['tmp_name'], $image_path)){
+            $contacts = file_exists($contacts_file)
+                ? json_decode(file_get_contents($contacts_file))
+                : [];
+
+                $contacts[] = [
+                    "id" => rand(10000000, 20000000),
+                    "name" => $name,
+                    "email" => $email,
+                    "phone" => $phone,
+                    "image" => $image_path,
+                ];
+
+            
+
+                file_put_contents($contacts_file, 
+                json_encode($contacts, JSON_PRETTY_PRINT));
+
+                echo "Contact added: $image_path";
+            }else{
+                echo "Image upload failed";
+            }
+
+            
+
         }else{
+
             echo "<div>Invalid input!</div>";
         }
 
