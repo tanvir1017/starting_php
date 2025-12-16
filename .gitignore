@@ -2,3 +2,7 @@
 /public/uploads
 /uploads/*
 /08_forms_superglobals/uploads
+/09_composer/vendor
+/10_db/uploads
+/10_db/contacts.db
+.db
